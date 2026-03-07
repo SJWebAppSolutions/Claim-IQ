@@ -1,0 +1,39 @@
+.breadcrumb-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+  text-align: start;
+}
+
+.breadcrumb {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.breadcrumb a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.breadcrumb .active {
+  color: black;
+  font-weight: 600;
+}
+
+.separator {
+  margin: 0 6px;
+  color: #999;
+}
+
+.breadcrumb-container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d4aa0;
+  margin-bottom: 6px;
+}
+
+.breadcrumb-container p {
+  color: #777;
+  font-size: 14px;
+}

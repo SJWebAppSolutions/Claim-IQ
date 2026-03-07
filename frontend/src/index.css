@@ -1,0 +1,15 @@
+.body-section{
+    margin: 0px !important;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+.page-loading {
+  min-height: 60vh;
+}
+
+.page-content {
+  min-height: 60vh;
+}
