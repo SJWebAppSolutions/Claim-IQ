@@ -1,8 +1,13 @@
 const express = require("express");
-const { getHeroBanner } = require("../controllers/home.controller");
+const { getHeroBanner, getTwoColumnGrid, getHowItWorks, getCtaBanner } = require("../controllers/home.controller");
 
-const router = express.Router();  
+const router = express.Router();
 
 router.get("/hero-banner", getHeroBanner);
+router.get("/two-column-grid", getTwoColumnGrid);
+router.get("/how-it-works", getHowItWorks);
+router.get("/cta-banner", getCtaBanner);
+
+
 
 module.exports = router;

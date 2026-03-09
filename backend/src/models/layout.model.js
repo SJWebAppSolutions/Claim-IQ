@@ -9,8 +9,6 @@ const layoutSchema = new mongoose.Schema(
 
     header: {
       logo: String,
-      title: String,
-      subtitle:String,
 
       menu: [
         {
@@ -25,7 +23,6 @@ const layoutSchema = new mongoose.Schema(
       brand: {
         logo: String,
         title: String,
-        subtitle: String,
       },
 
       navigation: [
@@ -37,7 +34,7 @@ const layoutSchema = new mongoose.Schema(
       ],
 
       contact: [
-        { icon: String, value: String }
+        { name: String, value: String }
       ],
     },
       

@@ -1,31 +1,50 @@
-const HeroBanner = require("../models/home.model");
+const { HeroBanner, TwoColumnGrid, HowItWorks, CtaBanner } = require("../models/home.model");
 
-exports.getHeroBanner = async (req, res) => {
+const cacheHeader = "public, s-maxage=3600, stale-while-revalidate=86400";
+
+const getSingleDocument = (Model, notFoundMessage) => async (req, res) => {
   try {
+    res.setHeader("Cache-Control", cacheHeader);
 
-    res.setHeader(
-      "Cache-Control",
-      "public, s-maxage=3600, stale-while-revalidate=86400"
-    );
+    const data = await Model.findOne().lean();
 
-    const banner = await HeroBanner.findOne();
-
-    if (!banner) {
+    if (!data) {
       return res.status(404).json({
         success: false,
-        message: "Hero banner not found",
+        message: notFoundMessage,
       });
     }
 
-    res.json({
+    return res.status(200).json({
       success: true,
-      data: banner,
+      data,
     });
+
   } catch (error) {
     console.error(error);
-    res.status(500).json({
+    return res.status(500).json({
       success: false,
       message: "Server error",
     });
   }
 };
+
+exports.getHeroBanner = getSingleDocument(
+  HeroBanner,
+  "Hero banner not found"
+);
+
+exports.getTwoColumnGrid = getSingleDocument(
+  TwoColumnGrid,
+  "Two Column Grid Data not found"
+);
+
+exports.getHowItWorks = getSingleDocument(
+  HowItWorks,
+  "How It Works Data not found"
+);
+
+exports.getCtaBanner = getSingleDocument(
+  CtaBanner,
+  "CTA Banner Data not found"
+);

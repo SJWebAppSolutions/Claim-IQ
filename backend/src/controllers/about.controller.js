@@ -16,7 +16,11 @@ exports.getAbout = async (req, res) => {
       });
     }
 
-    res.json(about);
+    return res.status(200).json({
+      success: true,
+      data: about
+    });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({
