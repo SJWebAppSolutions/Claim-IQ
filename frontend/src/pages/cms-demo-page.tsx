@@ -1,7 +1,7 @@
 import { useState } from "react";
 import heroBannerImage from '../assets/cms-demo-page/hero_banner.png'
 const NAV_LINKS = ["Home", "About us", "Services", "Contact us", "Refer a Practice"];
-
+import claimIcon from '../assets/company_logo.png'
 const SERVICES = [
   {
     icon: (
@@ -99,7 +99,7 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
         .navbar {
           background: #fff;
           display: flex; align-items: center; justify-content: space-between;
-          padding: 14px 48px;
+          padding: 0px 48px;
           border-bottom: 1.5px solid #e4ecf7;
           position: sticky; top: 0; z-index: 200;
           box-shadow: 0 2px 16px rgba(30,60,114,0.06);
@@ -122,8 +122,9 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
         .search-icon:hover { color: #1e56a0; }
 
         .btn-primary {
+          border-radius: 7px !important;
           background: linear-gradient(135deg, #1e56a0 0%, #2563c7 100%);
-          color: #fff; border: none; border-radius: 30px;
+          color: #fff; border: none;
           padding: 11px 26px; font-size: 14px; font-weight: 700;
           cursor: pointer; transition: all .25s; white-space: nowrap;
           box-shadow: 0 4px 14px rgba(30,86,160,0.3);
@@ -131,14 +132,16 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(30,86,160,0.4); }
 
         .btn-outline-white {
+          border-radius: 7px;
           background: transparent; color: #fff;
-          border: 2px solid rgba(255,255,255,0.7); border-radius: 30px;
+          border: 2px solid rgba(255,255,255,0.7);
           padding: 11px 26px; font-size: 14px; font-weight: 700;
           cursor: pointer; transition: all .25s; white-space: nowrap;
         }
         .btn-outline-white:hover { background: rgba(255,255,255,0.14); border-color: #fff; }
 
         .btn-cta {
+          border-radius: 7px !important;
           background: linear-gradient(135deg, #1e3c72 0%, #1e56a0 100%);
           color: #fff; border: none; border-radius: 30px;
           padding: 14px 36px; font-size: 15px; font-weight: 700;
@@ -155,7 +158,7 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
 
         /* HERO */
         .hero {
-          position: relative; overflow: hidden; min-height: 380px;
+          position: relative; overflow: hidden; min-height: 360px;
           background: linear-gradient(110deg, #0f2554 0%, #1e3c72 38%, #1e56a0 72%, #2a6dd9 100%);
           display: flex; align-items: center; justify-content: center;
           padding: 80px 48px; text-align: center;
@@ -183,14 +186,14 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
         .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
 
         /* SERVICES */
-        .services-section { padding: 80px 48px; background: #fff; }
+        .services-section { padding: 40px 48px; background: #fff; }
         .section-eyebrow {
           text-align: center; font-size: 11.5px; font-weight: 800;
           color: #1e56a0; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 10px;
         }
         .section-title {
           text-align: center; font-size: clamp(22px, 3vw, 30px);
-          font-weight: 800; color: #1e3c72; margin-bottom: 14px; letter-spacing: -0.4px;
+          color: #115194; margin-bottom: 14px; letter-spacing: -0.4px;
         }
         .section-sub {
           text-align: center; color: #5a6e8a; font-size: 15.5px;
@@ -199,12 +202,10 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
 
         .services-grid {
           display: grid; grid-template-columns: repeat(2, 1fr);
-          border: 1.5px solid #dde8f7; border-radius: 16px; overflow: hidden;
-          max-width: 1040px; margin: 0 auto;
+          overflow: hidden;max-width: 1040px; margin: 0 auto;
         }
         .service-card {
           padding: 36px 30px; display: flex; gap: 20px; align-items: flex-start;
-          border-right: 1.5px solid #dde8f7; border-bottom: 1.5px solid #dde8f7;
           background: #fff; transition: background .2s;
         }
         .service-card:nth-child(2n) { border-right: none; }
@@ -226,7 +227,7 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
         .read-more:hover { gap: 9px; }
 
         /* HOW IT WORKS */
-        .how-section { padding: 80px 48px; background: #f3f7fd; }
+        .how-section { padding: 40px 20px; background: #f3f7fd; }
         .steps-wrapper {
           display: grid; grid-template-columns: repeat(4, 1fr);
           gap: 28px; max-width: 1040px; margin: 0 auto;
@@ -249,7 +250,7 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
         .step-desc { font-size: 13.5px; color: #5a6e8a; line-height: 1.72; }
 
         /* CTA */
-        .cta-section { padding: 0 48px 80px; background: #f3f7fd; }
+        .cta-section { padding: 20px 48px 80px }
         .cta-card {
           background: linear-gradient(135deg, #d8eaf8 0%, #e4eef9 50%, #d0e6f6 100%);
           border-radius: 20px; padding: 60px 40px; text-align: center;
@@ -258,8 +259,8 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
           box-shadow: 0 6px 36px rgba(30,86,160,0.08);
         }
         .cta-card h2 {
-          font-size: clamp(22px, 3vw, 30px); font-weight: 800;
-          color: #1e3c72; margin-bottom: 14px; letter-spacing: -0.3px;
+          font-size: clamp(22px, 3vw, 30px);
+          color: #115194; margin-bottom: 14px; letter-spacing: -0.3px;
         }
         .cta-card p {
           color: #4a5f7a; font-size: 15.5px; line-height: 1.75;
@@ -330,6 +331,10 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
           .footer-grid { grid-template-columns: 1fr; }
           .cta-card { padding: 40px 20px; }
         }
+        .claim-icon{
+          width: 140px;
+          height: 90px;
+        }  
       `}</style>
 
       {/* TOP BAR */}
@@ -350,10 +355,7 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
       {/* NAVBAR */}
       <nav className="navbar">
 
-          <div>
-            <div className="logo-text">Claim<span>IQ</span></div>
-            <div className="logo-sub">Dental Billing Simplified</div>
-          </div>
+          <img src={claimIcon} alt='claimIcon' className="claim-icon"/>
 
         <ul className="nav-links">
           {NAV_LINKS.map((link) => (
@@ -397,7 +399,6 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
 
       {/* SERVICES */}
       <section className="services-section">
-        <div className="section-eyebrow">What We Offer</div>
         <h2 className="section-title">Comprehensive Revenue Cycle Management</h2>
         <p className="section-sub">We handle the complexities of dental billing with precision and scale, so your team can dedicate their time to providing exceptional patient care.</p>
         <div className="services-grid">
@@ -419,7 +420,6 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
 
       {/* HOW IT WORKS */}
       <section className="how-section">
-        <div className="section-eyebrow">Our Process</div>
         <h2 className="section-title">How It Works</h2>
         <p className="section-sub">A professionally structured onboarding process that ensures minimal disruption to your practice operations.</p>
         <div className="steps-wrapper">
@@ -446,18 +446,7 @@ const FOOTER_LINKS = ["Home", "About Us", "Services", "Contact Us", "Refer a Pra
       <footer className="footer">
         <div className="footer-grid">
           <div>
-            <div className="footer-logo-row">
-              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                <circle cx="18" cy="18" r="17" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" fill="rgba(255,255,255,0.05)"/>
-                <path d="M12 24c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#fff" strokeWidth="1.6" strokeLinecap="round"/>
-                <path d="M18 18v-5" stroke="#f5a623" strokeWidth="2.2" strokeLinecap="round"/>
-                <circle cx="18" cy="11" r="2.2" fill="#f5a623"/>
-              </svg>
-              <div>
-                <div className="footer-logo-text">Claim<span>IQ</span></div>
-                <div className="footer-logo-sub">Dental Billing Simplified</div>
-              </div>
-            </div>
+            <img src={claimIcon} alt='claimIcon' className="claim-icon"/>
             <p className="footer-desc">Claim IQ simplifies dental billing with efficient claim management, insurance processing, and revenue cycle support to help your practice grow.</p>
           </div>
 
