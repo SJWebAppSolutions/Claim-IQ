@@ -13,6 +13,9 @@ const errorMiddleware = require("./middlewares/error.middleware");
 const homeRoutes = require("./routes/home.routes");
 const layoutRoutes =  require("./routes/layout.routes");
 const aboutRoutes = require("./routes/about.routes");
+const contactRoutes = require("./routes/contact.routes");
+const referralRoutes = require("./routes/referral.routes");
+const serviceRoutes = require("./routes/service.routes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -43,6 +46,9 @@ app.use(morgan("dev"));
 app.use("/api/home", homeRoutes);
 app.use("/api/layout", layoutRoutes);
 app.use("/api/about", aboutRoutes);
+app.use("/api/contact", contactRoutes);
+app.use("/api/referral", referralRoutes);
+app.use("/api/service", serviceRoutes);
 // Swagger
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

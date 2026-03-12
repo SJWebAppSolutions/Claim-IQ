@@ -1,4 +1,4 @@
-const Service = require("../models/service.modal");
+const Service = require("../models/service.model");
 
 exports.getService = async (req, res) => {
   try {

@@ -1,4 +1,4 @@
-const { ReferralForm, ReferralPage } = require("../models/contact");
+const { ReferralForm, ReferralPage } = require("../models/referral.model");
 
 
 exports.getReferral = async (req, res) => {
@@ -9,7 +9,7 @@ exports.getReferral = async (req, res) => {
             "public, s-maxage=3600, stale-while-revalidate=86400"
         );
 
-        const referral = await ReferralPage.findOne();
+        const referral = await ReferralPage.findOne().lean();
 
         if (!referral) {
             return res.status(404).json({

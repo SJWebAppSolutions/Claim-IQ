@@ -1,11 +1,11 @@
 const express = require("express");
-const { getReferral, sendReferralMessage } = require("../controllers/contactController");
+const { getReferral, sendReferralMessage } = require("../controllers/referral.controller");
 
 const router = express.Router();
 
-router.get("/referral", getReferral);
+router.get("/", getReferral);
 
-router.post("/referral/message", sendReferralMessage.sendMessage);
+router.post("/message", sendReferralMessage);
 
 
 module.exports = router;

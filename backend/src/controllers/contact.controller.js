@@ -1,4 +1,4 @@
-const { ContactMessage, ContactPage } = require("../models/contact");
+const { ContactMessage, ContactPage } = require("../models/contact.model");
 
 
 exports.getContact = async (req, res) => {
@@ -9,7 +9,7 @@ exports.getContact = async (req, res) => {
             "public, s-maxage=3600, stale-while-revalidate=86400"
         );
 
-        const contact = await ContactPage.findOne();
+        const contact = await ContactPage.findOne().lean();
 
         if (!contact) {
             return res.status(404).json({
