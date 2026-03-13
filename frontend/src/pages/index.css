@@ -44,7 +44,7 @@ img {
   text-align: center;
   padding: 48px 20px;
   background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-    url('https:res.cloudinary.com/dzvom7900/image/upload/v1773257528/about_hero_banner_vqnr77.png') center/cover no-repeat;
+    url('https://res.cloudinary.com/dzvom7900/image/upload/v1773257528/about_hero_banner_vqnr77.png') center/cover no-repeat;
   overflow: hidden;
 }
 
@@ -495,7 +495,7 @@ img {
 .cu-hero-bg {
   position: absolute;
   inset: 0;
-  background: url('https:res.cloudinary.com/dzvom7900/image/upload/v1773258530/contact_us_j7vfrt.png') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/dzvom7900/image/upload/v1773258530/contact_us_j7vfrt.png') center/cover no-repeat;
   opacity: 0.50;
 }
 
@@ -749,7 +749,7 @@ img {
 .rp-hero-bg {
   position: absolute;
   inset: 0;
-  background: url('https:res.cloudinary.com/dzvom7900/image/upload/v1773258546/refer_pratice_rpmfml.png') center/cover no-repeat;
+  background: url('https://res.cloudinary.com/dzvom7900/image/upload/v1773258546/refer_pratice_rpmfml.png') center/cover no-repeat;
   opacity: 0.48;
 }
 

@@ -58,7 +58,7 @@ const ContactPage = () => {
             <div className="cu-info-item">
               <div className="cu-info-icon">
                 <img
-                  src="https:res.cloudinary.com/dzvom7900/image/upload/v1773258529/contact_us_icon_y7wrwh.png"
+                  src="https://res.cloudinary.com/dzvom7900/image/upload/v1773258529/contact_us_icon_y7wrwh.png"
                   alt="Contact"
                 />
               </div>
@@ -71,7 +71,7 @@ const ContactPage = () => {
             <div className="cu-info-item">
               <div className="cu-info-icon">
                 <img
-                  src="https:res.cloudinary.com/dzvom7900/image/upload/v1773258529/clock_contact_icon_eh4jaj.png"
+                  src="https://res.cloudinary.com/dzvom7900/image/upload/v1773258529/clock_contact_icon_eh4jaj.png"
                   alt="Hours"
                 />
               </div>

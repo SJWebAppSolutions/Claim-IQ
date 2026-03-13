@@ -32,7 +32,7 @@ const AboutPage = () => {
            </div>
            <div className="story-image">
              <img
-               src="https:res.cloudinary.com/dzvom7900/image/upload/v1773257529/about_story_wjwntl.png"
+               src="https://res.cloudinary.com/dzvom7900/image/upload/v1773257529/about_story_wjwntl.png"
                alt="Dental billing story - tooth model with calculator and paperwork"
              />
            </div>
@@ -41,7 +41,7 @@ const AboutPage = () => {
          <section className="mv-section">
            <div className="mv-card">
              <div className="mv-icon">
-               <img src="https:res.cloudinary.com/dzvom7900/image/upload/v1773257528/mission_ioldvj.png" alt="Mission icon" />
+               <img src="https://res.cloudinary.com/dzvom7900/image/upload/v1773257528/mission_ioldvj.png" alt="Mission icon" />
              </div>
              <div className="mv-text">
                <h3>Our Mission</h3>
@@ -53,7 +53,7 @@ const AboutPage = () => {
 
            <div className="mv-card">
              <div className="mv-icon">
-               <img src="https:res.cloudinary.com/dzvom7900/image/upload/v1773257529/vision_vnmnwk.png" alt="Vision icon" />
+               <img src="https://res.cloudinary.com/dzvom7900/image/upload/v1773257529/vision_vnmnwk.png" alt="Vision icon" />
              </div>
              <div className="mv-text">
                <h3>Our Vision</h3>
