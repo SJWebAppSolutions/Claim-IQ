@@ -1,3 +1,5 @@
-import Footer from './footer';
+import { lazy } from 'react';
 
-export default Footer;
+const Footer = lazy(() => import('./footer'));
+
+export { Footer };

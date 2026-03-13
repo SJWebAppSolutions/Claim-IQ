@@ -1,0 +1,124 @@
+.hero {
+  position: relative;
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 60px;
+  overflow: hidden;
+  background: #0d2347;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('https://res.cloudinary.com/dzvom7900/image/upload/v1773253983/hero_banner_home_chpkvv.png') center/cover no-repeat;
+  opacity: 0.45;
+}
+
+.hero-c {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  width: 100%;
+}
+
+.hero-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.22;
+  margin-bottom: 18px;
+}
+
+.gold {
+  color: #e8b84b;
+}
+
+.hero-sub {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(14px, 1.8vw, 17px);
+  line-height: 1.68;
+  margin-bottom: 34px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hbp {
+  background: #115194;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hbp:hover {
+  background: #122d56;
+}
+
+.hbs {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hbs:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 48px 28px;
+    min-height: 320px;
+  }
+
+  .hero-title {
+    font-size: clamp(24px, 5vw, 36px);
+  }
+}
+
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 36px 18px;
+    min-height: 280px;
+  }
+
+  .hero-title {
+    font-size: clamp(22px, 6vw, 30px);
+    line-height: 1.28;
+  }
+
+  .hero-sub {
+    font-size: 13.5px;
+    margin-bottom: 26px;
+  }
+
+  .hbp,
+  .hbs {
+    padding: 11px 20px;
+    font-size: 13px;
+  }
+}

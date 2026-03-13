@@ -1,0 +1,136 @@
+.svc-sec {
+  padding: 60px 60px;       
+  background: #fff;
+}
+
+.sec-title {
+  text-align: center;
+  color: #115194;
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 16px;
+}
+
+.sec-sub {
+  text-align: center;
+  color: #555;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 52px;
+}
+
+.svc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 52px 80px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.svc-item {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.svc-icon {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  margin-top: 2px;
+}
+
+.svc-icon img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.svc-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  line-height: 1.35;
+}
+
+.badge {
+  background: #fff8e8;
+  color: #a07800;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid #e8d090;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.svc-desc {
+  font-size: clamp(13px, 1.3vw, 15px);
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.rm {
+  color: #1a3a6b;
+  font-size: 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  transition: gap 0.2s;
+}
+
+.rm:hover { gap: 7px; }
+.rm svg { transition: transform 0.2s; }
+.rm:hover svg { transform: translateX(2px); }
+
+@media (max-width: 900px) {
+  .svc-sec {
+    padding: 48px 28px;        
+  }
+  .sec-sub {
+    font-size: 15px;
+    margin-bottom: 36px;
+  }
+  .svc-grid {
+    gap: 36px 32px;
+    max-width: 100%;
+  }
+  .svc-title { font-size: 15px; }
+  .svc-desc  { font-size: 13.5px; }
+}
+
+@media (max-width: 600px) {
+  .svc-sec {
+    padding: 36px 18px;      
+  }
+  .sec-title  { font-size: 20px; }
+  .sec-sub {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }
+  .svc-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 100%;
+  }
+  .svc-icon,
+  .svc-icon img { width: 42px; height: 42px; }
+  .svc-title { font-size: 15px; }
+  .svc-desc  { font-size: 13px; }
+  .rm        { font-size: 13px; }
+}
