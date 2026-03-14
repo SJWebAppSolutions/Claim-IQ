@@ -11,7 +11,7 @@ const swaggerOptions = {
     servers: [
       {
         url:
-          location.hostname === "localhost"
+         process.env.NODE_ENV === "production" === "localhost"
             ? "http://localhost:5000"
             : "https://claim-iq.onrender.com",
       }
