@@ -57,8 +57,8 @@
 .hbp {
   background: #115194;
   color: #fff;
-  border: 2px solid #fff;
-  border-radius: 4px;
+  border: 2px solid transparent;
+  border-radius: 11px;
   padding: 13px 28px;
   font-size: 14px;
   font-weight: 700;
@@ -72,10 +72,10 @@
 }
 
 .hbs {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border: 2px solid #fff;
-  border-radius: 4px;
+  background-color: #ffffff;
+  color: #115194;
+  border: 2px solid transparent;
+  border-radius: 11px;
   padding: 13px 28px;
   font-size: 14px;
   font-weight: 700;
@@ -85,7 +85,8 @@
 }
 
 .hbs:hover {
-  background: rgba(255, 255, 255, 0.22);
+  color:#fff;
+  background: #1a6abf;;
 }
 
 @media (max-width: 900px) {

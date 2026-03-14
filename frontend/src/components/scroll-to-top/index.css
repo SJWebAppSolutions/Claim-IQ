@@ -22,7 +22,7 @@
   height: 46px;
   border-radius: 50%;
   background: #ffffff;
-  border: 2px solid;
+  border: 2px solid #115194;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,12 +34,16 @@
   font-size: 18px;
   font-weight: 700;
   line-height: 1;
+  color: #fff;
 }
 
 .scroll-text {
+  color: #115194;
   margin-top: 6px;
+  font-family: 'Open Sans', sans-serif;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.4px;
   opacity: 0;
   transform: translateY(-4px);
   transition: all 0.3s ease;
@@ -52,16 +56,46 @@
 }
 
 .scroll-top-wrapper:hover .scroll-top-btn {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
-
 
 @media (max-width: 768px) {
   .scroll-top-wrapper {
-    right: 15px;
-    bottom: 70px;
+    right: 16px;
+    bottom: 120px;
   }
+
+  .scroll-top-btn {
+    width: 44px;
+    height: 44px;
+  }
+
   .scroll-text {
-    font-size: 11px;
+    opacity: 1;
+    transform: translateY(0);
+    font-size: 10px;
+    color: #115194;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-top-wrapper {
+    right: 14px;
+    bottom: 120px;
+  }
+
+  .scroll-top-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .scroll-top-btn img {
+    width: 17px;
+    height: 17px;
+  }
+
+  .scroll-text {
+    font-size: 9px;
+    letter-spacing: 0.3px;
   }
 }

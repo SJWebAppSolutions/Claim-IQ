@@ -3,11 +3,11 @@ import './index.css';
 import { scrollToTop } from '../../assets/icon';
 
 const ScrollToTop = () => {
-  const { show, scrollTop, theme } = scrollToTopController();
+  const { show, scrollTop } = scrollToTopController();
   
   return (
     <div
-      className={`scroll-top-wrapper ${theme} ${show ? 'show' : ''}`}
+      className={`scroll-top-wrapper ${show ? 'show' : ''}`}
       onClick={scrollTop}>
       <div className="scroll-top-btn">
         <img src={scrollToTop} alt="ScrollToTop" />

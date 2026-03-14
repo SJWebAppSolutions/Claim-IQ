@@ -31,7 +31,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "http://localhost:5173"
+      "http://localhost:5173",
+      "https://claim-iq-blond.vercel.app"
     ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],

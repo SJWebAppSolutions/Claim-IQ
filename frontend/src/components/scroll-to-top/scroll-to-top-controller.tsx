@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 
 const scrollToTopController = () => {
-  const { brand } = useParams<{ brand?: string }>();
 
   const [show, setShow] = useState(false);
 
@@ -23,8 +21,7 @@ const scrollToTopController = () => {
   };
   return {
     scrollTop,
-    show,
-    theme:brand
+    show
   };
 };
 

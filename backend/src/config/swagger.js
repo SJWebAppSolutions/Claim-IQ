@@ -10,7 +10,10 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:5000"
+        url:
+          location.hostname === "localhost"
+            ? "http://localhost:5000"
+            : "https://claim-iq.onrender.com",
       }
     ]
   },
