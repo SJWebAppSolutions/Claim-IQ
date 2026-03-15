@@ -1,8 +1,7 @@
-// import Breadcrumb from '../../components/breadcrumb/breadcrumb';
 import aboutUsController from './about-us-controller';
 
 const AboutPage = () => {
-  const { breadcrumb, pageData, loading } = aboutUsController();
+  const { pageData, loading } = aboutUsController();
 
   if (loading || !pageData) return null;
 

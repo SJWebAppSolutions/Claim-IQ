@@ -1,4 +1,3 @@
-// import Breadcrumb from '../../components/breadcrumb/breadcrumb';
 import referAPracticeController from './refer-a-practice-controller';
 
 type Point = {
@@ -13,7 +12,6 @@ type referralData = {
 
 const ReferAPractice = () => {
   const {
-    breadcrumb,
     pageData,
     handleSubmit,
     handleChange,

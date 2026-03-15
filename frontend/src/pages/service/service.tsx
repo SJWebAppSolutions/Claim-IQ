@@ -13,7 +13,7 @@ interface Service {
 }
 
 const ServicePage = () => {
-  const { breadcrumb, pageData, loading } = serviceController();
+  const { pageData, loading } = serviceController();
 
   if (loading || !pageData) return null;
 

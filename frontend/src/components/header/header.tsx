@@ -38,7 +38,7 @@ const Header = ({ pageData }: any) => {
         )}
 
         <div className="navbar-links">
-          {header?.menu?.map((item: any, i: number) => (
+          {header?.menu?.map((item: any) => (
             <NavLink
               key={item?.path}
               to={item?.path}
