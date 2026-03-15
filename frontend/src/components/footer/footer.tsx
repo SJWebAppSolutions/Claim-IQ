@@ -1,67 +1,62 @@
 import './index.css';
 
-const Footer = () => {
+const Footer = ({ pageData }: any) => {
+  const { footer } = pageData;
+
   return (
-    <footer className="ftr">
-      <div className="ftr-grid">
-        <div>
-          <div className="ftr-logo">
-            <img
-              src="https://res.cloudinary.com/dzvom7900/image/upload/v1773419695/logo_icon_iulurx.png"
-              alt="Claim IQ"
-            />
+    <footer className="footer">
+      <div className="footer-grid">
+        {(footer?.brand?.logo || footer?.brand?.title) && (
+          <div>
+            {footer?.brand?.logo && (
+              <div className="footer-logo">
+                <img src={footer?.brand?.logo} alt="Claim IQ" />
+              </div>
+            )}
+            {footer?.brand?.title && (
+              <p className="footer-description">{footer?.brand?.title}</p>
+            )}
           </div>
-          <p className="ftr-desc">
-            Claim IQ simplifies dental billing with efficient claim management,
-            insurance processing, and revenue cycle support to help your
-            practice grow.
-          </p>
-        </div>
+        )}
 
-        <div className="ftr-col">
-          <h4>Important Links</h4>
-          {[
-            'Home',
-            'About Us',
-            'Services',
-            'Contact Us',
-            'Refer a Practice',
-          ].map((l) => (
-            <a key={l} href="#" className="ftr-link">
-              {l}
-            </a>
-          ))}
-        </div>
+        {!!footer?.navigation?.length && (
+          <div className="footer-column">
+            <h4>Important Links</h4>
+            {footer?.navigation?.map((l: any) => (
+              <a key={l} href={l?.path} className="footer-link">
+                {l?.label}
+              </a>
+            ))}
+          </div>
+        )}
 
-        <div className="ftr-col">
-          <h4>Contact Us</h4>
-          <p className="ftr-info">Call: 943-294-7296</p>
-          <p className="ftr-info">Email: Info@claimiqconsulting.com</p>
-        </div>
+        {!!footer?.contact?.length && (
+          <div className="footer-column">
+            <h4>Contact Us</h4>
+
+            {footer?.contact?.map((item: any, index: number) => (
+              <p key={index} className="footer-contact">
+                {item?.name}: {item?.value}
+              </p>
+            ))}
+          </div>
+        )}
       </div>
 
-      <div className="ftr-bot">
-        <span className="ftr-copy">© 2026</span>
-        <div className="ftr-soc">
-          {[
-            {
-              src: 'https://res.cloudinary.com/dzvom7900/image/upload/v1773256158/linkdin_sx3klm.png',
-              alt: 'LinkedIn',
-            },
-            {
-              src: 'https://res.cloudinary.com/dzvom7900/image/upload/v1773256158/facebook_i9yutg.png',
-              alt: 'Facebook',
-            },
-            {
-              src: 'https://res.cloudinary.com/dzvom7900/image/upload/v1773256158/instagram_ldwzrf.png',
-              alt: 'Instagram',
-            },
-          ].map(({ src, alt }) => (
-            <button key={alt} className="soc" aria-label={alt}>
-              <img src={src} alt={alt} />
-            </button>
-          ))}
-        </div>
+      <div className="footer-bottom">
+        <span className="footer-copyright">© 2026</span>
+        {!!footer?.social?.length && (
+          <div className="footer-social">
+            {footer?.social?.slice(1)?.map((item: any) => (
+              <button
+                key={item.icon}
+                className="footer-social-icon"
+                aria-label={item.icon}>
+                <img src={item?.url} alt={item?.icon} />
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </footer>
   );

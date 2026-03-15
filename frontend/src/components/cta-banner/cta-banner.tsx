@@ -1,17 +1,33 @@
+import ctaBannerController from './cta-banner-controller';
 import './index.css';
 
 const CtaBanner = () => {
+  const { pageData, loading } = ctaBannerController();
+  if (loading || !pageData) return null;
+
   return (
-    <section className="cta-sec">
-      <div className="cta-card">
-        <h2 className="cta-title">Ready to simplify your dental billing?</h2>
-        <p className="cta-desc">
-          Join dental practices that trust Claim IQ to maximize their revenue
-          and reduce administrative headaches.
-        </p>
-        <button className="cta-btn">Schedule Your Free Consultation</button>
-      </div>
-    </section>
+    <>
+      {pageData &&
+        (pageData?.title || pageData?.description || pageData?.button) && (
+          <section className="cta-section">
+            <div className="cta-card">
+              {pageData?.title && (
+                <h2 className="cta-title">{pageData?.title}</h2>
+              )}
+              {pageData?.description && (
+                <p className="cta-description">{pageData?.description}</p>
+              )}
+              {pageData?.button && (
+                <a href={pageData?.button?.link}>
+                  <button className="cta-button">
+                    {pageData?.button?.text}
+                  </button>
+                </a>
+              )}
+            </div>
+          </section>
+        )}
+    </>
   );
 };
 

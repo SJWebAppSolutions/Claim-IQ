@@ -1,4 +1,17 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const aboutUsController = () => {
+  const [pageData, setPageData] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/about`)
+      .then((res) => setPageData(res?.data))
+      .finally(() => setLoading(false));
+  }, []);
+
   const breadcrumb = [
     { path: '/', label: 'Home' },
     { path: '/about-us', label: 'About Us' },
@@ -6,6 +19,8 @@ const aboutUsController = () => {
 
   return {
     breadcrumb,
+    pageData:pageData?.data,
+    loading
   };
 };
 

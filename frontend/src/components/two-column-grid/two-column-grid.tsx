@@ -1,63 +1,64 @@
 import './index.css';
+import twoColumnGridController from './two-column-grid-controller';
 
 const TwoColumnGrid = () => {
-  const SERVICES = [
-  {
-    icon: "https://res.cloudinary.com/dzvom7900/image/upload/v1773257038/dentail_insurance_pe8kq7.png",
-    title: "Dental Insurance Billing",
-    badge: null,
-    desc: "Comprehensive management of your entire billing cycle, ensuring accurate coding and timely submissions.",
-  },
-  {
-    icon: "https://res.cloudinary.com/dzvom7900/image/upload/v1773257038/insurance_verification_nhv8zt.png",
-    title: "Insurance Verification",
-    badge: "Try free for 2 weeks — no charge",
-    desc: "Thorough verification of patient benefits before their appointment to eliminate surprises and denials.",
-  },
-  {
-    icon: "https://res.cloudinary.com/dzvom7900/image/upload/v1773257038/claim_posting_o3d3pa.png",
-    title: "Claims Posting",
-    badge: null,
-    desc: "Accurate and rapid posting of insurance payments and adjustments to keep your ledger perfectly balanced.",
-  },
-  {
-    icon: "https://res.cloudinary.com/dzvom7900/image/upload/v1773257039/merchant__processing_tlkynx.png",
-    title: "Merchant Processing",
-    badge: null,
-    desc: "Secure, integrated payment solutions with competitive rates to streamline patient collections.",
-  },
-];
+  const { pageData, loading } = twoColumnGridController();
+  if (loading || !pageData) return null;
 
-    return (
-          <section className="svc-sec">
-        <h2 className="sec-title">Comprehensive Revenue Cycle Management</h2>
-        <p className="sec-sub">
-          We handle the complexities of dental billing with precision and scale, so your team can dedicate their time to providing exceptional patient care.
-        </p>
-        <div className="svc-grid">
-          {SERVICES.map((s, i) => (
-            <div key={i} className="svc-item">
-              <div className="svc-icon">
-                <img src={s.icon} alt={s.title} />
+  return (
+    <section className="rcm-services">
+      {pageData?.title && (
+        <h2 className="rcm-services_title">{pageData?.title}</h2>
+      )}
+      {pageData?.description && (
+        <p className="rcm-services_subtitle">{pageData?.description}</p>
+      )}
+      <div className="rcm-services-grid">
+        {pageData?.insuranceItems?.map((service: any, i: number) => (
+          <div key={i} className="rcm-services_item">
+            {service?.image && (
+              <div className="rcm-services_icon">
+                <img src={service?.image} alt={service?.title} />
               </div>
-              <div>
-                <div className="svc-title">
-                  {s.title}
-                  {s.badge && <span className="badge">{s.badge}</span>}
+            )}
+
+            <div className="rcm-services_content">
+              {service?.title?.includes('(') ? (
+                <div className='rcm-services-budge'>
+                  {service?.title?.split('(')[0]?.trim()}
+                  <span className="badge">({service?.title?.split('(')[1]}</span>
                 </div>
-                <p className="svc-desc">{s.desc}</p>
-                <button className="rm">
+              ) : (
+                <div className='rcm-services-item-title'>{service?.title}</div>
+              )}
+              {service?.description && (
+                <p className="rcm-services_description">
+                  {service?.description}
+                </p>
+              )}
+
+              <a href="/services">
+                <button className="rcm-services_read-more">
                   Read More
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="9 18 15 12 9 6"/>
+                  <svg
+                    width="13"
+                    height="13"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round">
+                    <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </button>
-              </div>
+              </a>
             </div>
-          ))}
-        </div>
-      </section>
-  )
-}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default TwoColumnGrid;

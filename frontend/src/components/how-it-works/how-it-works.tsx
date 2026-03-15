@@ -1,46 +1,26 @@
+import howItworksController from './how-it-work-controller';
 import './index.css';
 
 const HowItWorks = () => {
-  const STEPS = [
-    {
-      num: '01',
-      on: true,
-      title: 'Schedule Consultation',
-      desc: "We discuss your practice's specific needs, current challenges, and goals to build a tailored plan.",
-    },
-    {
-      num: '02',
-      on: false,
-      title: 'Onboarding & Setup',
-      desc: 'Seamless integration with your existing dental software and secure credentialing.',
-    },
-    {
-      num: '03',
-      on: false,
-      title: 'We Handle Billing',
-      desc: 'Our experts take over verification, claim submission, and follow-ups.',
-    },
-    {
-      num: '04',
-      on: false,
-      title: 'You Get Paid Faster',
-      desc: 'Enjoy improved cash flow, fewer denials, and transparent reporting.',
-    },
-  ];
+  const { pageData, loading } = howItworksController();
+  if (loading || !pageData) return null;
 
   return (
-    <section className="how-sec">
-      <h2 className="sec-title">How it works</h2>
-      <p className="sec-sub">
-        A professionally structured onboarding process that ensures minimal
-        disruption to your practice operations
-      </p>
-      <div className="steps">
-        {STEPS.map((s, i) => (
+    <section className="workflow-container">
+      {pageData?.title && <h2 className="workflow-title">{pageData?.title}</h2>}
+      {pageData?.description && (
+        <p className="workflow-subtitle">{pageData?.description}</p>
+      )}
+      <div className="workflow-steps">
+        {pageData?.steps?.map((s: any, i: number) => (
           <div key={i}>
-            <div className={`s-circle ${s.on ? 's-on' : 's-off'}`}>{s.num}</div>
-            <div className="s-title">{s.title}</div>
-            <div className="s-desc">{s.desc}</div>
+            {s?.stepNumber && (
+              <div className={`workflow-step-number ${i === 0 ? 'workflow-step-number-active' : 'workflow-step-number-inactive'}`}>
+                {s?.stepNumber}
+              </div>
+            )}
+            {s?.title && <div className="workflow-step-title">{s?.title}</div>}
+            {s?.description && <div className="workflow-step-description">{s?.description}</div>}
           </div>
         ))}
       </div>

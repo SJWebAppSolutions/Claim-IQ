@@ -1,23 +1,22 @@
-.how-sec {
-  padding: 60px 60px;
+.workflow-container {
+  padding: 32px 50px;
   background: #f4f7fb;
 }
 
-.steps {
+.workflow-steps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
-  max-width: 1040px;
   margin: 0 auto;
   position: relative;
 }
 
-.steps>div {
+.workflow-steps>div {
   position: relative;
   z-index: 1;
 }
 
-.s-circle {
+.workflow-step-number {
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -30,74 +29,105 @@
   margin-bottom: 20px;
 }
 
-.s-on {
+.workflow-step-number-active {
   background: #1a3a6b;
   color: #fff;
 }
 
-.s-off {
+.workflow-step-number-inactive {
   background: #dce3ef;
   color: #8899b8;
   border: none;
 }
 
-.s-title {
+.workflow-step-title {
   font-family: 'Poppins', sans-serif;
   font-size: clamp(15px, 1.5vw, 18px);
-  font-weight: 700;
+  font-weight: 500;
   color: #1a1a2e;
   margin-bottom: 10px;
   line-height: 1.35;
 }
 
-.s-desc {
+.workflow-step-description {
   font-size: clamp(13px, 1.3vw, 15px);
   color: #666;
   line-height: 1.68;
 }
 
+.workflow-title {
+  text-align: center;
+  color: #115194;
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 16px;
+}
+
+
+.workflow-subtitle {
+  text-align: center;
+  color: #555;
+  font-size: clamp(15px, 1.5vw, 18px);
+  line-height: 1.7;
+  max-width: 700px;
+  margin: 0 auto 52px;
+}
+
 @media (max-width: 900px) {
-  .how-sec {
+  .workflow-container {
     padding: 48px 28px;
   }
 
-  .steps {
+  .workflow-steps {
     grid-template-columns: 1fr 1fr;
     gap: 36px 28px;
     max-width: 100%;
   }
 
-  .s-title {
+  .workflow-step-title {
     font-size: 15px;
   }
 
-  .s-desc {
+  .workflow-step-description {
     font-size: 13.5px;
+  }
+
+    .workflow-subtitle {
+    font-size: 15px;
+    margin-bottom: 36px;
   }
 }
 
 @media (max-width: 600px) {
-  .how-sec {
+  .workflow-container {
     padding: 36px 18px;
   }
 
-  .steps {
+  .workflow-steps {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .s-circle {
+  .workflow-step-number {
     width: 54px;
     height: 54px;
     font-size: 16px;
     margin-bottom: 14px;
   }
 
-  .s-title {
+  .workflow-step-title {
     font-size: 15px;
   }
 
-  .s-desc {
+  .workflow-step-description {
     font-size: 13px;
   }
+    .workflow-title {
+    font-size: 20px;
+  }
+.workflow-subtitle {
+    font-size: 14px;
+    margin-bottom: 28px;
+  }  
 }

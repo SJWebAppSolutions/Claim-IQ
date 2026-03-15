@@ -1,60 +1,57 @@
 .hero {
   position: relative;
-  min-height: 380px;
+  min-height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 60px 60px;
+  padding: 32px 50px;
   overflow: hidden;
   background: #0d2347;
 }
 
-.hero-bg {
+.hero-background {
   position: absolute;
   inset: 0;
-  background: url('https://res.cloudinary.com/dzvom7900/image/upload/v1773253983/hero_banner_home_chpkvv.png') center/cover no-repeat;
   opacity: 0.45;
 }
 
-.hero-c {
+.hero-content {
   position: relative;
   z-index: 1;
-  max-width: 720px;
+  max-width: 780px;
   width: 100%;
 }
 
 .hero-title {
   font-family: 'Poppins', sans-serif;
-  font-size: clamp(26px, 4vw, 44px);
-  font-weight: 800;
+  font-size: clamp(26px, 4vw, 32px);
+  font-weight: 500;
   color: #fff;
-  line-height: 1.22;
-  margin-bottom: 18px;
 }
 
-.gold {
+.hero-highlight {
   color: #e8b84b;
 }
 
-.hero-sub {
+.hero-description {
   color: rgba(255, 255, 255, 0.88);
   font-size: clamp(14px, 1.8vw, 17px);
   line-height: 1.68;
   margin-bottom: 34px;
-  max-width: 560px;
+  max-width: 630px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.hero-btns {
+.hero-actions {
   display: flex;
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.hbp {
+.hero-btn-primary {
   background: #115194;
   color: #fff;
   border: 2px solid transparent;
@@ -67,11 +64,11 @@
   transition: background 0.2s;
 }
 
-.hbp:hover {
+.hero-btn-primary:hover {
   background: #122d56;
 }
 
-.hbs {
+.hero-btn-secondary {
   background-color: #ffffff;
   color: #115194;
   border: 2px solid transparent;
@@ -84,7 +81,7 @@
   transition: background 0.2s;
 }
 
-.hbs:hover {
+.hero-btn-secondary:hover {
   color:#fff;
   background: #1a6abf;;
 }
@@ -112,13 +109,13 @@
     line-height: 1.28;
   }
 
-  .hero-sub {
+  .hero-description {
     font-size: 13.5px;
     margin-bottom: 26px;
   }
 
-  .hbp,
-  .hbs {
+  .hero-btn-primary,
+  .hero-btn-secondary {
     padding: 11px 20px;
     font-size: 13px;
   }

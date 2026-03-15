@@ -1,89 +1,59 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './index.css';
 
-const Header = () => {
+const Header = ({ pageData }: any) => {
+  const { header, footer } = pageData;
+
   const [menuOpen, setMenuOpen] = useState(false);
-  const NAV_LINKS = [
-    { label: 'Home', link: '/' },
-    { label: 'About us', link: '/about-us' },
-    { label: 'Services', link: '/services' },
-    { label: 'Contact us', link: '/contact-us' },
-    { label: 'Refer a Practice', link: '/refer-practice' },
-  ];
 
   return (
     <>
-      <div className="tb">
-        <div className="tb-phone">
-          <img
-            src="https://res.cloudinary.com/dzvom7900/image/upload/v1773256157/call_icon_mtpbl7.svg"
-            alt="phone"
-          />
-          <span>943-294-7296</span>
-        </div>
-        <div className="tb-icons">
-          {[
-            {
-              src: 'https://res.cloudinary.com/dzvom7900/image/upload/v1773256158/linkdin_sx3klm.png',
-              alt: 'LinkedIn',
-            },
-            {
-              src: 'https://res.cloudinary.com/dzvom7900/image/upload/v1773256158/facebook_i9yutg.png',
-              alt: 'Facebook',
-            },
-            {
-              src: 'https://res.cloudinary.com/dzvom7900/image/upload/v1773256158/instagram_ldwzrf.png',
-              alt: 'Instagram',
-            },
-          ].map(({ src, alt }) => (
-            <button key={alt} className="soc" aria-label={alt}>
-              <img src={src} alt={alt} />
+      <div className="topbar">
+        {(footer?.social?.[0]?.url || footer?.contact?.[0]?.value) && (
+          <div className="topbar-phone">
+            <img src={footer?.social?.[0]?.url} alt="phone" />
+            <span>{footer?.contact?.[0]?.value}</span>
+          </div>
+        )}
+        <div className="topbar-icons">
+          {footer?.social?.slice(1)?.map((item: any) => (
+            <button
+              key={item.icon}
+              className="topbar-social"
+              aria-label={item.icon}>
+              <img src={item?.url} alt={item?.icon} />
             </button>
           ))}
         </div>
       </div>
 
-      <nav className="nav">
-        <Link to="/">
-          <div className="nav-logo">
-            <img
-              src="https://res.cloudinary.com/dzvom7900/image/upload/v1773419695/logo_icon_iulurx.png"
-              alt="Claim IQ"
-            />
-          </div>
-        </Link>
+      <nav className="navbar">
+        {header?.logo && (
+          <Link to="/">
+            <div className="navbar-logo">
+              <img src={header?.logo} alt="Claim IQ" />
+            </div>
+          </Link>
+        )}
 
-        <div className="nav-links">
-          {NAV_LINKS.map(({ label, link }, i) => (
-            <a
-              key={label}
-              href={link}
-              className={`nl${i === 0 ? ' active' : ''}`}>
-              {label}
-            </a>
+        <div className="navbar-links">
+          {header?.menu?.map((item: any, i: number) => (
+            <NavLink
+              key={item?.path}
+              to={item?.path}
+              className={({ isActive }) =>
+                `navbar-link ${isActive ? 'active' : ''}`
+              }>
+              {item?.label}
+            </NavLink>
           ))}
         </div>
 
-        <div className="nav-r">
-          {/* Search icon */}
-          {/* <button className="search-btn" aria-label="Search">
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#1a3a6b"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </button> */}
-          <button className="btn-gs">Get Started</button>
+        <div className="navbar-actions">
+          <button className="btn-get-started">Get Started</button>
           <button
-            className="hbg"
+            className="hamburger-menu"
             aria-label="Menu"
             onClick={() => setMenuOpen((o) => !o)}>
             {menuOpen ? (
@@ -116,14 +86,17 @@ const Header = () => {
         </div>
       </nav>
 
-      <div className={`mmenu${menuOpen ? ' open' : ''}`}>
-        {NAV_LINKS.map(({ label, link }, i) => (
-          <a
-            key={label}
-            href={link}
-            className={`nl${i === 0 ? ' active' : ''}`}>
-            {label}
-          </a>
+      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+        {header?.menu?.map((item: any) => (
+          <NavLink
+            key={item?.path}
+            to={item?.path}
+            onClick={() => setMenuOpen(false)}
+            className={({ isActive }) =>
+              `mobile-menu-link ${isActive ? 'active' : ''}`
+            }>
+            <span>{item?.label}</span>
+          </NavLink>
         ))}
       </div>
     </>
