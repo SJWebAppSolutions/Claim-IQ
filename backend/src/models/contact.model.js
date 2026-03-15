@@ -1,28 +1,15 @@
 const mongoose = require("mongoose");
 
-const ContactMessageSchema = new mongoose.Schema({
-  firstName: {
-    type: String,
-    required: true
-  },
-  lastName: {
-    type: String
-  },
-  email: {
-    type: String,
-    required: true
-  },
-  phone: {
-    type: String
-  },
-  message: {
-    type: String,
-    required: true
-  }
-},
-{
-  timestamps: true
-});
+const contactModel  = (data = {}) => {
+  return {
+    firstName: String(data.firstName || '').trim(),
+    lastName: String(data.lastName || '').trim(),
+    email: String(data.email || '').trim().toLowerCase(),
+    telephone: String(data.telephone || '').trim(),
+    message: String(data.message || '').trim(),
+    createdAt: new Date(),
+  };
+}
 
 
 const ContactInfoSchema = new mongoose.Schema(
@@ -50,10 +37,9 @@ const ContactPageSchema = new mongoose.Schema({
   contactItems: [ContactInfoSchema]
 });
 
-const ContactMessage = mongoose.model("ContactMessage", ContactMessageSchema);
 const ContactPage = mongoose.model("ContactPage", ContactPageSchema);
 
 module.exports = {
-  ContactMessage,
+  contactModel,
   ContactPage
 };

@@ -1,37 +1,18 @@
 const mongoose = require("mongoose");
 
-const ReferralSchema = new mongoose.Schema({
-    yourName: {
-        type: String,
-        required: true
-    },
-    yourEmail: {
-        type: String,
-        required: true
-    },
-    yourPhone: String,
-
-    practiceName: {
-        type: String,
-        required: true
-    },
-    contactPersonName: {
-        type: String,
-        required: true
-    },
-    practiceEmail: {
-        type: String,
-        required: true
-    },
-    practicePhone: String,
-
-    notes: String,
-
-    createdAt: {
-        type: Date,
-        default: Date.now
-    }
-});
+const referralModel = (data = {}) => {
+  return {
+    yourName: String(data.yourName || "").trim(),
+    yourEmail: String(data.yourEmail || "").trim(),
+    yourPhone: String(data.yourPhone || "").trim(),
+    practiceName: String(data.practiceName || "").trim(),
+    contactPersonName: String(data.contactPersonName || "").trim(),
+    theirEmail: String(data.theirEmail || "").trim(),
+    theirPhone: String(data.theirPhone || "").trim(),
+    notes: String(data.notes || "").trim(),
+    createdAt: new Date(),
+  };
+};
 
 const referralPointSchema = new mongoose.Schema(
 {
@@ -59,7 +40,6 @@ const ReferralPageSchema = new mongoose.Schema({
   sections: [referralSectionSchema]
 });
 
-const ReferralForm = mongoose.model("Referral", ReferralSchema);
 const ReferralPage = mongoose.model("ReferralPage", ReferralPageSchema);
 
-module.exports = { ReferralForm, ReferralPage };
+module.exports = { referralModel, ReferralPage };

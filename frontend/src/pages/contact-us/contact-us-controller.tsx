@@ -38,7 +38,6 @@ const contantUsController = () => {
 
     const contactData = {
       ...formData,
-      phone: formData?.telephone,
     };
 
     try {
