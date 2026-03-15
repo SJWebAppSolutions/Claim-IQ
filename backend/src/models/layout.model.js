@@ -30,7 +30,7 @@ const layoutSchema = new mongoose.Schema(
       ],
 
       social: [
-        { icon: String, url: String }
+        { icon: String, name:String, iconUrl: String }
       ],
 
       contact: [
