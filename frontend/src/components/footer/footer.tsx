@@ -23,7 +23,7 @@ const Footer = ({ pageData }: any) => {
           <div className="footer-column">
             <h4>Important Links</h4>
             {footer?.navigation?.map((l: any) => (
-              <a key={l} href={l?.path} className="footer-link">
+              <a key={l?.path} href={l?.path} className="footer-link">
                 {l?.label}
               </a>
             ))}
