@@ -3,10 +3,10 @@ import { Suspense } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ScrollToTop from './utils/scrollToTop';
-// import useTawk from './utils/chatScript';
+import useTawk from './utils/chatScript';
 
 const App = () => {
-  // useTawk();
+  useTawk();
   
   return (
     <>
