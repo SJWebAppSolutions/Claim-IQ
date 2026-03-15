@@ -18,12 +18,15 @@ const Header = ({ pageData }: any) => {
         )}
         <div className="topbar-icons">
           {footer?.social?.slice(1)?.map((item: any) => (
-            <button
-              key={item.icon}
-              className="topbar-social"
-              aria-label={item.icon}>
-              <img src={item?.url} alt={item?.icon} />
-            </button>
+            <a
+              key={item?.icon}
+              href={item?.iconUrl}
+              target="_blank"
+              rel="noopener noreferrer">
+              <button className="topbar-social" aria-label={item?.icon}>
+                <img src={item?.url} alt={item?.icon} />
+              </button>
+            </a>
           ))}
         </div>
       </div>
@@ -51,7 +54,9 @@ const Header = ({ pageData }: any) => {
         </div>
 
         <div className="navbar-actions">
-          <button className="btn-get-started">Get Started</button>
+          <a href="/contact-us">
+            <button className="btn-get-started">Get Started</button>
+          </a>
           <button
             className="hamburger-menu"
             aria-label="Menu"
