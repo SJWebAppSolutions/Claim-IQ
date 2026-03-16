@@ -11,13 +11,8 @@ type referralData = {
 };
 
 const ReferAPractice = () => {
-  const {
-    pageData,
-    handleSubmit,
-    handleChange,
-    formData,
-    formLoading,
-  } = referAPracticeController();
+  const { pageData, handleSubmit, handleChange, formData, formLoading } =
+    referAPracticeController();
 
   return (
     <>
@@ -133,6 +128,14 @@ const ReferAPractice = () => {
               value={formData?.notes}
               onChange={handleChange}
             />
+
+            <div className="referral-credit-box">
+  <strong>Referral Credit:</strong>
+  <p>
+    The office gets <span>10% discount</span> towards their bill for referring
+    another practice once they sign up.
+  </p>
+</div>
 
             <button className="referral-submit" type="submit">
               {formLoading ? 'Submitting...' : 'Submit Referral'}{' '}

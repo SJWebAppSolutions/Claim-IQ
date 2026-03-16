@@ -1,14 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
 
-import { HomePage, AboutPage, ContactPage, ServicePage, ReferalAPracticePage, BlogPage } from '../pages';
+import {
+  HomePage,
+  AboutPage,
+  ContactPage,
+  ServicePage,
+  ReferalAPracticePage,
+  BlogPage,
+} from '../pages';
 import { Layout } from '../components/layout';
 import NotFoundPage from '../pages/404';
 
 const AppRoutes = () => {
   return (
-    <>
-     <Routes>
-      
+    <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="about-us" element={<AboutPage />} />
@@ -19,9 +24,7 @@ const AppRoutes = () => {
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />
-
     </Routes>
-    </>
   );
 };
 

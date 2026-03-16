@@ -55,6 +55,12 @@
   transform:translateY(-1px);
 }
 
+.topbar-icons{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
 .navbar {
   background: #fff;
   padding: 0 60px;
@@ -241,10 +247,9 @@
     padding: 8px 16px;
     font-size: 12px;
   }
-}
 
-.topbar-icons{
-  display:flex;
-  align-items:center;
-  gap:12px;
+  .social-icon{
+   width: 23px;
+   height: 23px;
+  }
 }
