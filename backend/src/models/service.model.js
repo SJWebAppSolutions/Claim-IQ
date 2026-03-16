@@ -37,8 +37,10 @@ const serviceSchema = new mongoose.Schema(
     backgroundImage: String
   },
 
-  services: [serviceItemSchema]
-
+  services: [serviceItemSchema],
+  
+  contact: { name: String, value: String }
+      
 },
 { timestamps: true }
 );

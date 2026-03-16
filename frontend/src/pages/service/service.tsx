@@ -93,6 +93,14 @@ const ServicePage = () => {
             </>
           ))}
         </div>
+      {Object.keys(pageData?.contant || {}).length > 0 && (
+        <div className="service-contact-icon">
+          <img src={pageData?.contant?.name} alt="phone" />
+          <a href={`mailto:${pageData?.contant?.value}`}>
+            {pageData?.contant?.value}
+          </a>
+        </div>
+      )}
       </div>
   );
 };

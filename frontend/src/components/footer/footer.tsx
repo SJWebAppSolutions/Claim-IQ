@@ -49,13 +49,12 @@ const Footer = ({ pageData }: any) => {
           <div className="footer-social">
             {footer?.social?.slice(1)?.map((item: any) => (
               <a
+                className='social-icon'
                 key={item?.icon}
                 href={item?.iconUrl}
                 target="_blank"
                 rel="noopener noreferrer">
-                <button className="footer-social-icon" aria-label={item?.icon}>
-                  <img src={item?.url} alt={item?.icon} />
-                </button>
+                <i className={item?.url}></i>
               </a>
             ))}
           </div>
