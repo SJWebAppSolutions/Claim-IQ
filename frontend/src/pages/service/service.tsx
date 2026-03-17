@@ -13,12 +13,12 @@ interface Service {
 }
 
 const ServicePage = () => {
-  const { pageData, loading } = serviceController();
+  const { pageData, loading,serviceRef,showContact } = serviceController();
 
   if (loading || !pageData) return null;
 
   return (
-     <div className="sp-wrap">
+     <div className="sp-wrap" ref={serviceRef}>
         <section className="sp-hero">
           {pageData?.heroBanner?.backgroundImage && (
             <div
@@ -93,7 +93,7 @@ const ServicePage = () => {
             </>
           ))}
         </div>
-      {Object.keys(pageData?.contant || {}).length > 0 && (
+      {showContact && Object.keys(pageData?.contant || {}).length > 0 && (
         <div className="service-contact-icon">
           <img src={pageData?.contant?.name} alt="phone" />
           <a href={`mailto:${pageData?.contant?.value}`}>
