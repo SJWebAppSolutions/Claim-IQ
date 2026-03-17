@@ -28,7 +28,7 @@ const serviceController = () => {
     observer.observe(el);
 
     return () => observer.disconnect();
-  }, [serviceRef]);
+  }, [serviceRef,pageData]);
 
   const breadcrumb = [
     { path: '/', label: 'Home' },
