@@ -128,9 +128,12 @@ ${message}
 </div>
 
 <div style="margin-top:28px;text-align:center;">
-<a href="mailto:${email}" style="display:inline-block;background:#2b3f8f;color:#ffffff;
-padding:12px 22px;font-size:14px;border-radius:6px;
-text-decoration:none;font-weight:500;">
+<a href="mailto:${email}" style="background:#f6b93b;color:#000;padding:12px 22px;
+border-radius:6px;text-decoration:none;font-weight:600;
+display:inline-flex;align-items:center;gap:8px;">
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="black" viewBox="0 0 24 24">
+  <path d="M2 4h20v16H2V4zm2 2v.01L12 13l8-6.99V6H4zm16 12V8l-8 7-8-7v10h16z"/>
+</svg>
 Reply to Inquiry →
 </a>
 </div>
