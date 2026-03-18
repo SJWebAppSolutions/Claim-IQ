@@ -48,6 +48,7 @@ const ServicePage = () => {
                 svc?.image ||
                 !!svc?.points?.length) && (
                 <section
+                  id={`service-${idx}`}
                   className={`sp-service ${svc?.imagePosition === 'right' ? 'reverse' : ''}`}
                   key={idx}>
                   {(svc?.title ||
@@ -64,7 +65,7 @@ const ServicePage = () => {
                       ) : (
                         <>
                           {svc?.title && (
-                            <div className="rcm-services-item-title">
+                            <div className="services-item-title">
                               {svc?.title}
                             </div>
                           )}

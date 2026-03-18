@@ -327,11 +327,11 @@ img {
   line-height: 1.2;
 }
 
-.rcm-services-item-title {
+.services-item-title {
   font-family: 'Poppins', sans-serif;
   font-size: clamp(20px, 3vw, 28px);
   font-weight: 500;
-  color: #115194;
+  color: #115194 !important;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -471,8 +471,8 @@ img {
     gap: 28px;
   }
 
-  .rcm-services-item-title {
-    font-size: 15px;
+  .services-item-title {
+    font-size: 15px !important;
   }
 }
 

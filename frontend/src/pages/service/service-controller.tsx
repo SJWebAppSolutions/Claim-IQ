@@ -1,11 +1,13 @@
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const serviceController = () => {
   const [pageData, setPageData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const serviceRef = useRef<HTMLDivElement | null>(null);
   const [showContact, setShowContact] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     axios
@@ -29,6 +31,22 @@ const serviceController = () => {
 
     return () => observer.disconnect();
   }, [serviceRef,pageData]);
+  
+   useEffect(() => {
+    if (!loading && pageData) {
+      const index = location?.state?.index;
+
+      if (index !== undefined) {
+        const el = document.getElementById(`service-${index}`);
+
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: "smooth", block: 'start' });
+          }, 200);
+        }
+      }
+    }
+  }, [loading, pageData, location.state]);
 
   const breadcrumb = [
     { path: '/', label: 'Home' },

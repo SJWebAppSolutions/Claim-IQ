@@ -2,7 +2,7 @@ import './index.css';
 import twoColumnGridController from './two-column-grid-controller';
 
 const TwoColumnGrid = () => {
-  const { pageData, loading } = twoColumnGridController();
+  const { pageData, loading, navigate } = twoColumnGridController();
   if (loading || !pageData) return null;
 
   return (
@@ -37,8 +37,7 @@ const TwoColumnGrid = () => {
                 </p>
               )}
 
-              <a href="/services">
-                <button className="rcm-services_read-more">
+                <button className="rcm-services_read-more" onClick={() => navigate('/services', { state: { index: i } })}>
                   Read More
                   <svg
                     width="13"
@@ -52,7 +51,6 @@ const TwoColumnGrid = () => {
                     <polyline points="9 18 15 12 9 6" />
                   </svg>
                 </button>
-              </a>
             </div>
           </div>
         ))}

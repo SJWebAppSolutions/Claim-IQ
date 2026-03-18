@@ -1,10 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const twoColumnGridController = () => {
 
   const [pageData, setPageData] = useState<any>(null);
   const [loading, setLoading] = useState(true);
+  
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     axios
@@ -15,7 +19,8 @@ const twoColumnGridController = () => {
 
    return {
     pageData:pageData?.data,
-    loading
+    loading,
+    navigate
   };
 };
 
