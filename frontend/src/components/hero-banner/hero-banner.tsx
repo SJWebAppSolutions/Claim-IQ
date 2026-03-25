@@ -10,17 +10,20 @@ const HeroBanner = () => {
       {pageData && (
         <section className="hero">
           {pageData?.heroImage && (
-            <div
-              className="hero-background"
-              style={{
-                background: `url(${pageData?.heroImage}) center/cover no-repeat`,
-              }}
-            />
+            <div className="hero-background">
+              <img
+                src={pageData?.heroImage}
+                alt="Hero"
+                fetchPriority="high"
+                loading="eager"
+                className="hero-bg-img"
+              />
+            </div>
           )}
           <div className="hero-content">
             {pageData?.title && (
               <h1 className="hero-title">
-                {pageData?.title?.split(' ').map((word:any, index:number) =>
+                {pageData?.title?.split(' ').map((word: any, index: number) =>
                   word === 'Streamline' || word === 'Confidence' ? (
                     <span key={index} className="hero-highlight">
                       {word + ' '}

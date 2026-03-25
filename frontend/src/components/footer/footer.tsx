@@ -21,7 +21,7 @@ const Footer = ({ pageData }: any) => {
 
         {!!footer?.navigation?.length && (
           <div className="footer-column">
-            <h4>Important Links</h4>
+            <h3>Important Links</h3>
             {footer?.navigation?.map((l: any) => (
               <a key={l?.path} href={l?.path} className="footer-link">
                 {l?.label}
@@ -32,7 +32,7 @@ const Footer = ({ pageData }: any) => {
 
         {!!footer?.contact?.length && (
           <div className="footer-column">
-            <h4>Contact Us</h4>
+            <h3>Contact Us</h3>
 
             {footer?.contact?.map((item: any, index: number) => (
               <p key={index} className="footer-contact">
