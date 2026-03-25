@@ -53,7 +53,9 @@ const Footer = ({ pageData }: any) => {
                 key={item?.icon}
                 href={item?.iconUrl}
                 target="_blank"
-                rel="noopener noreferrer">
+                rel="noopener noreferrer"
+                aria-label={`Visit ${item?.icon} profile`}
+                >
                 <i className={item?.url}></i>
               </a>
             ))}
