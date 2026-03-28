@@ -44,7 +44,7 @@ const Footer = ({ pageData }: any) => {
       </div>
 
       <div className="footer-bottom">
-        <span className="footer-copyright">© 2026</span>
+        <span className="footer-copyright">© {new Date().getFullYear()}</span>
         {!!footer?.social?.length && (
           <div className="footer-social">
             {footer?.social?.slice(1)?.map((item: any) => (

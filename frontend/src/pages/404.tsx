@@ -27,7 +27,7 @@ const NotFoundPage = () => {
           </button>
         </div>
 
-        <footer>© 2026 Company Name. All rights reserved.</footer>
+        <footer>© {new Date().getFullYear()} Company Name. All rights reserved.</footer>
       </div>
     </div>
   );
