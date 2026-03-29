@@ -1,5 +1,5 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const useLayoutController = () => {
   const [pageData, setPageData] = useState<any>(null);
@@ -12,6 +12,29 @@ const useLayoutController = () => {
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => {
+    if (!pageData?.script?.head) return;
+
+    pageData.script.head.forEach((script: string) => {
+      const temp = document.createElement('div');
+      temp.innerHTML = script;
+
+      const scriptTag = temp.querySelector('script');
+      if (!scriptTag) return;
+
+      const newScript = document.createElement('script');
+
+      if (scriptTag.src) {
+        newScript.src = scriptTag.src;
+        newScript.defer = true;
+      } else {
+        newScript.textContent = scriptTag.innerHTML;
+      }
+
+      document.head.appendChild(newScript);
+    });
+  }, [pageData]);
 
   return { pageData, loading };
 };
