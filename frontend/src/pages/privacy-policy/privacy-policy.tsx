@@ -24,7 +24,7 @@ const PrivacyPolicy = () => {
         <div className="privacy-policy-inner">
           <div className="privacy-policy-meta">
             <span className="privacy-policy-effective">
-              Effective Date: {pageData?.effectiveDate}
+              Effective Date: {new Date(pageData?.effectiveDate).toLocaleDateString()}
             </span>
             <span className="privacy-policy-divider" aria-hidden="true" />
             <span className="privacy-policy-count">
@@ -47,7 +47,24 @@ const PrivacyPolicy = () => {
                   <h2 className="privacy-policy-section-title">
                     {data?.title}
                   </h2>
-                  {data?.content}
+
+                  {data?.content?.map((item: any, index: number) => {
+                    if (item.type === 'paragraph') {
+                      return <p key={index}>{item.text}</p>;
+                    }
+
+                    if (item.type === 'list') {
+                      return (
+                        <ul key={index}>
+                          {item.items?.map((li: string, i: number) => (
+                            <li key={i}>{li}</li>
+                          ))}
+                        </ul>
+                      );
+                    }
+
+                    return null;
+                  })}
                 </div>
               </div>
             ))}
