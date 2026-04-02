@@ -1,5 +1,5 @@
 const { referralModel, ReferralPage } = require("../models/referral.model");
-const mailTransporter = require("../config/mail.config.js");
+const mailTransporter = require("../config/mail.config");
 
 exports.getReferral = async (req, res) => {
   try {
@@ -58,7 +58,7 @@ exports.sendReferralMessage = async (req, res) => {
     }
 
     try {
-      mailTransporter.sendMail({
+      await mailTransporter.sendMail({
         from: `"Website Contact" <${process.env.MAIL_EMAIL}>`,
         to: process.env.MAIL_EMAIL,
         subject: `New Referral Submission - ${practiceName}`,

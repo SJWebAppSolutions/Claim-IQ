@@ -1,5 +1,5 @@
 const { contactModel, ContactPage } = require("../models/contact.model");
-const mailTransporter = require("../config/mail.config.js");
+const mailTransporter = require("../config/mail.config");
 
 exports.getContact = async (req, res) => {
   try {
@@ -46,7 +46,7 @@ exports.sendMessage = async (req, res) => {
     }
 
     try {
-      mailTransporter.sendMail({
+      await mailTransporter.sendMail({
         from: `"Website Contact" <${process.env.MAIL_EMAIL}>`,
         to: process.env.MAIL_EMAIL,
         subject: 'Contact Form: New Inquiry',

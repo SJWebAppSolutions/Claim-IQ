@@ -8,7 +8,6 @@ const morgan = require("morgan");
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./config/swagger");
 
-const connectDatabase = require("./config/db");
 const errorMiddleware = require("./middlewares/error.middleware");
 const homeRoutes = require("./routes/home.routes");
 const layoutRoutes =  require("./routes/layout.routes");
@@ -19,26 +18,20 @@ const serviceRoutes = require("./routes/service.routes");
 const policyRoutes = require("./routes/policy.routes");
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-
-// DB connection
-connectDatabase();
 
 // Global middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: false })); 
-app.use(express.static("public"));          
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static("public"));
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5173",
-      "https://claim-iq-blond.vercel.app",
-      "https://claimiqconsulting.com"
-    ],
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://claim-iq-blond.vercel.app",
+    "https://claimiqconsulting.com"
+  ],
+  credentials: true
   })
 );
 
@@ -60,6 +53,4 @@ app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Error handler
 app.use(errorMiddleware);
 
-app.listen(PORT, () => {
-  console.log(`🚀 Server started on PORT ${PORT}`);
-});
+module.exports = app;
