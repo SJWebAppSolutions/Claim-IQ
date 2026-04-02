@@ -7,6 +7,7 @@ import {
   ServicePage,
   ReferalAPracticePage,
   BlogPage,
+  PrivacyPolicyPage
 } from '../pages';
 import { Layout } from '../components/layout';
 import NotFoundPage from '../pages/404';
@@ -21,6 +22,8 @@ const AppRoutes = () => {
         <Route path="services" element={<ServicePage />} />
         <Route path="refer-practice" element={<ReferalAPracticePage />} />
         <Route path="blog" element={<BlogPage />} />
+        <Route path="privacy-policy" element={<PrivacyPolicyPage />} />
+
       </Route>
 
       <Route path="*" element={<NotFoundPage />} />

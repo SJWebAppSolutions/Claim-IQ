@@ -45,6 +45,11 @@ const Footer = ({ pageData }: any) => {
 
       <div className="footer-bottom">
         <span className="footer-copyright">© {new Date().getFullYear()}</span>
+
+        <a href="/privacy-policy" className="footer-privacy-link">
+           Privacy Policy
+       </a>
+
         {!!footer?.social?.length && (
           <div className="footer-social">
             {footer?.social?.slice(1)?.map((item: any) => (

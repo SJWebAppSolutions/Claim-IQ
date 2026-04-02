@@ -16,6 +16,7 @@ const aboutRoutes = require("./routes/about.routes");
 const contactRoutes = require("./routes/contact.routes");
 const referralRoutes = require("./routes/referral.routes");
 const serviceRoutes = require("./routes/service.routes");
+const policyRoutes = require("./routes/policy.routes");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -51,6 +52,8 @@ app.use("/api/about", aboutRoutes);
 app.use("/api/contact", contactRoutes);
 app.use("/api/referral", referralRoutes);
 app.use("/api/service", serviceRoutes);
+app.use("/api/privacy-policy", policyRoutes);
+
 // Swagger
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
