@@ -13,9 +13,12 @@ const HeroBanner = () => {
             <div className="hero-background">
               <img
                 src={pageData?.heroImage}
-                alt="Hero"
+                alt="Hero banner"
                 fetchPriority="high"
                 loading="eager"
+                decoding="async"
+                width="1920"
+                height="800"
                 className="hero-bg-img"
               />
             </div>

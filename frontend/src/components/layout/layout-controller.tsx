@@ -16,7 +16,10 @@ const useLayoutController = () => {
   useEffect(() => {
     if (!pageData?.script?.head) return;
 
-    pageData.script.head.forEach((script: string) => {
+    pageData.script.head.forEach((script: string, index: number) => {
+      
+      if (document.querySelector(`[data-dynamic-script="${index}"]`)) return;
+
       const temp = document.createElement('div');
       temp.innerHTML = script;
 
@@ -24,12 +27,13 @@ const useLayoutController = () => {
       if (!scriptTag) return;
 
       const newScript = document.createElement('script');
+      newScript.setAttribute('data-dynamic-script', index.toString());
 
       if (scriptTag.src) {
         newScript.src = scriptTag.src;
         newScript.defer = true;
       } else {
-        newScript.textContent = scriptTag.innerHTML;
+        newScript.innerHTML = scriptTag.innerHTML;
       }
 
       document.head.appendChild(newScript);
