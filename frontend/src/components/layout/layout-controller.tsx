@@ -13,32 +13,38 @@ const useLayoutController = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  useEffect(() => {
-    if (!pageData?.script?.head) return;
+ useEffect(() => {
+  if (!pageData?.script) return;
 
-    pageData.script.head.forEach((script: string, index: number) => {
-      
-      if (document.querySelector(`[data-dynamic-script="${index}"]`)) return;
+  const injectScript = (scriptStr: string) => {
 
-      const temp = document.createElement('div');
-      temp.innerHTML = script;
+    const temp = document.createElement("div");
+    temp.innerHTML = scriptStr;
 
-      const scriptTag = temp.querySelector('script');
-      if (!scriptTag) return;
+    const scriptTag = temp.querySelector("script");
+    if (!scriptTag) return;
 
-      const newScript = document.createElement('script');
-      newScript.setAttribute('data-dynamic-script', index.toString());
+    const newScript = document.createElement("script");
 
-      if (scriptTag.src) {
-        newScript.src = scriptTag.src;
-        newScript.defer = true;
-      } else {
-        newScript.innerHTML = scriptTag.innerHTML;
-      }
+    if (scriptTag.src) {
+      newScript.src = scriptTag.src;
+      newScript.async = true;
+    } else {
+      newScript.textContent = scriptTag.innerHTML;
+    }
 
-      document.head.appendChild(newScript);
-    });
-  }, [pageData]);
+    document.head.appendChild(newScript);
+  };
+
+  pageData.script.analytics?.forEach((script: string) => {
+    injectScript(script);
+  });
+
+  pageData.script.metaPixel?.forEach((script: string) => {
+    injectScript(script);
+  });
+
+}, [pageData]);
 
   return { pageData, loading };
 };
